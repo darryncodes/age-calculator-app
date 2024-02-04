@@ -12,14 +12,21 @@ const GlobalStyles = createGlobalStyle`
 body {
   background-color: ${({ theme }) => theme.colours.offWhite};
   font-family: 'Poppins', sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 2rem;
+  font-style: italic;
+  padding: 1rem;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  
+  @media (min-width: ${({ theme }) => theme.mobile}) {
+        font-size: 3rem;
+        
+    }
 }
 
 img, picture, video, canvas, svg {

@@ -2,6 +2,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './components/styles/Global';
 import { Container } from './components/styles/Container.styled';
 import Form from './components/Form';
+import Output from './components/Output';
 
 const theme = {
     colours: {
@@ -13,6 +14,7 @@ const theme = {
         purple: 'hsl(259, 100%, 65%)',
         lightRed: 'hsl(0, 100%, 67%)',
     },
+    mobile: '640px',
 };
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
                 <GlobalStyles />
                 <Container>
                     <Form />
+                    <Output />
                 </Container>
             </>
         </ThemeProvider>

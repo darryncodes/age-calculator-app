@@ -1,32 +1,40 @@
 import arrow from './../assets/icon-arrow.svg';
+import {
+    StyledForm,
+    FlexDivRow,
+    FlexDivColumn,
+    Label,
+    Input,
+    Button,
+} from './styles/Form.styled';
 
 const Form = () => {
     return (
-        <form>
-            <div>
-                <div>
-                    <label htmlFor='day'>Day</label>
-                    <input type='number' id='day' name='day' min='1' max='31' />
-                </div>
-                <div>
-                    <label htmlFor='month'>Month</label>
-                    <input
+        <StyledForm>
+            <FlexDivRow>
+                <FlexDivColumn>
+                    <Label htmlFor='day'>Day</Label>
+                    <Input type='number' id='day' name='day' min='1' max='31' />
+                </FlexDivColumn>
+                <FlexDivColumn>
+                    <Label htmlFor='month'>Month</Label>
+                    <Input
                         type='number'
                         id='month'
                         name='month'
                         min='1'
                         max='12'
                     />
-                </div>
-                <div>
-                    <label htmlFor='year'>Year</label>
-                    <input type='number' id='year' name='year' />
-                </div>
-            </div>
-            <button type='submit'>
+                </FlexDivColumn>
+                <FlexDivColumn>
+                    <Label htmlFor='year'>Year</Label>
+                    <Input type='number' id='year' name='year' />
+                </FlexDivColumn>
+            </FlexDivRow>
+            <Button type='submit'>
                 <img src={arrow} alt='' />
-            </button>
-        </form>
+            </Button>
+        </StyledForm>
     );
 };
 
