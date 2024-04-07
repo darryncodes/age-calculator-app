@@ -1,34 +1,39 @@
+import {
+    differenceInDays,
+    differenceInMonths,
+    differenceInYears,
+} from 'date-fns';
+
 import { Span } from './styles/Output.styled';
 
 const Output = ({ date }) => {
-    const enteredDate = new Date(
-        `${Number(date.year)}, ${Number(date.month)}, ${Number(date.day)}`
+    const currentDay = new Date().getDate();
+    const currentMonth = new Date().getMonth() + 1;
+    const currentYear = new Date().getFullYear();
+
+    const differenceDays = differenceInDays(
+        new Date(currentYear, currentMonth, date.day),
+        new Date()
     );
-    const currentDate = new Date();
-
-    const difference = currentDate - enteredDate;
-    const day = 1000 * 60 * 60 * 24;
-
-    const monthDifference = Math.floor(
-        enteredDate.getMonth() - currentDate.getMonth()
+    const differenceMonths = differenceInMonths(
+        new Date(currentYear, date.month, currentDay),
+        new Date()
     );
-
-    console.log(monthDifference);
-
-    const days = Math.floor(difference / day);
-    const months = Math.floor(days / 31);
-    const years = Math.floor(months / 12);
+    const differenceYears = differenceInYears(
+        new Date(),
+        new Date(date.year, date.month, date.day)
+    );
 
     return (
         <>
             <p>
-                <Span>{years || '--'}</Span> years
+                <Span>{differenceYears || '--'}</Span> years
             </p>
             <p>
-                <Span>{monthDifference || '--'}</Span> months
+                <Span>{differenceMonths || '--'}</Span> months
             </p>
             <p>
-                <Span>{days || '--'}</Span> days
+                <Span>{differenceDays || '--'}</Span> days
             </p>
         </>
     );
