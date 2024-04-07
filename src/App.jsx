@@ -3,6 +3,7 @@ import GlobalStyles from './components/styles/Global';
 import { Container } from './components/styles/Container.styled';
 import Form from './components/Form';
 import Output from './components/Output';
+import { useState } from 'react';
 
 const theme = {
     colours: {
@@ -18,13 +19,15 @@ const theme = {
 };
 
 function App() {
+    const [date, setDate] = useState({});
+
     return (
         <ThemeProvider theme={theme}>
             <>
                 <GlobalStyles />
                 <Container>
-                    <Form />
-                    <Output />
+                    <Form setDate={setDate} />
+                    <Output date={date} />
                 </Container>
             </>
         </ThemeProvider>

@@ -24,10 +24,6 @@ export const StyledForm = styled.form`
         min-width: 30rem;
         gap: 0;
         margin-right: 2rem;
-
-        &::after {
-            width: 85%;
-        }
     }
 `;
 
@@ -65,7 +61,7 @@ export const Button = styled.button`
     border: none;
     border-radius: 50%;
     outline: none;
-    padding: 0.75rem;
+    padding: 0.5rem;
     background-color: ${({ theme }) => theme.colours.purple};
     cursor: pointer;
     align-self: center;
@@ -79,5 +75,6 @@ export const Button = styled.button`
 
     @media (min-width: ${({ theme }) => theme.mobile}) {
         align-self: end;
+        padding: 0.75rem;
     }
 `;
