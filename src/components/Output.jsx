@@ -1,39 +1,35 @@
-import {
-    differenceInDays,
-    differenceInMonths,
-    differenceInYears,
-} from 'date-fns';
-
 import { Span } from './styles/Output.styled';
 
 const Output = ({ date }) => {
-    const currentDay = new Date().getDate();
-    const currentMonth = new Date().getMonth() + 1;
-    const currentYear = new Date().getFullYear();
+    let currentDay = new Date().getDate();
+    let currentMonth = new Date().getMonth() + 1;
+    let currentYear = new Date().getFullYear();
+    const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-    const differenceDays = differenceInDays(
-        new Date(currentYear, currentMonth, date.day),
-        new Date()
-    );
-    const differenceMonths = differenceInMonths(
-        new Date(currentYear, date.month, currentDay),
-        new Date()
-    );
-    const differenceYears = differenceInYears(
-        new Date(),
-        new Date(date.year, date.month, date.day)
-    );
+    if (date.day > currentDay) {
+        currentDay = currentDay + months[currentMonth - 1];
+        currentMonth = currentMonth - 1;
+    }
+
+    if (date.month > currentMonth) {
+        currentMonth = currentMonth + 12;
+        currentYear = currentYear - 1;
+    }
+
+    let day = currentDay - date.day;
+    let month = currentMonth - date.month;
+    let year = currentYear - date.year;
 
     return (
         <>
             <p>
-                <Span>{differenceYears || '--'}</Span> years
+                <Span>{year || '--'}</Span> years
             </p>
             <p>
-                <Span>{differenceMonths || '--'}</Span> months
+                <Span>{month || '--'}</Span> months
             </p>
             <p>
-                <Span>{differenceDays || '--'}</Span> days
+                <Span>{day || '--'}</Span> days
             </p>
         </>
     );
