@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+
 import arrow from './../assets/icon-arrow.svg';
 import {
     StyledForm,
@@ -21,22 +24,27 @@ const Form = ({ setDate }) => {
     const [monthError, setMonthError] = useState(false);
     const [yearError, setYearError] = useState(false);
 
-    //  const currentDate = new Date();
     const currentYear = new Date().getFullYear();
+    dayjs.extend(customParseFormat);
 
     const handleDayInput = (e) => {
-        setDay(e.target.value);
+        let formattedDay =
+            e.target.value < 10 ? '0' + e.target.value : e.target.value;
 
-        if (e.target.value.length) {
+        setDay(formattedDay);
+
+        if (formattedDay.length) {
             setDayMessage('');
             setDayError(false);
         }
     };
 
     const handleMonthInput = (e) => {
-        setMonth(e.target.value);
+        let formattedMonth =
+            e.target.value < 10 ? '0' + e.target.value : e.target.value;
+        setMonth(formattedMonth);
 
-        if (e.target.value.length) {
+        if (formattedMonth.length) {
             setMonthMessage('');
             setMonthError(false);
         }
@@ -72,6 +80,15 @@ const Form = ({ setDate }) => {
             setDayError(true);
             setMonthError(true);
             setYearError(true);
+            return;
+        }
+
+        if (
+            dayjs(`${year}-${month}-${day}`, 'YYYY-MM-DD', true).isValid() ===
+            false
+        ) {
+            setDayMessage('Must be a valid date');
+            setDayError(true);
             return;
         }
 
