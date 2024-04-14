@@ -46,7 +46,7 @@ export const Label = styled.label`
     text-transform: uppercase;
     font-style: normal;
     color: ${({ theme }) => theme.colours.smokeyGrey};
-    color: ${(props) => props.inputError};
+    color: ${(props) => props.inputerror};
 `;
 
 export const Input = styled.input`
@@ -54,7 +54,7 @@ export const Input = styled.input`
     font-style: normal;
 
     border: 1px solid ${({ theme }) => theme.colours.lightGrey};
-    border-color: ${(props) => props.inputError};
+    border-color: ${(props) => props.inputerror};
     border-radius: 0.25rem;
     padding: 0.25rem 0.5rem;
     width: 5rem;

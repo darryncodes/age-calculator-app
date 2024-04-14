@@ -122,7 +122,7 @@ const Form = ({ setDate }) => {
                 <FlexDivColumn>
                     <Label
                         htmlFor='day'
-                        inputError={dayError ? 'hsl(0, 100%, 67%)' : ''}
+                        inputerror={dayError ? 'hsl(0, 100%, 67%)' : ''}
                     >
                         Day
                     </Label>
@@ -133,14 +133,14 @@ const Form = ({ setDate }) => {
                         min='1'
                         placeholder='DD'
                         onChange={handleDayInput}
-                        inputError={dayError ? 'hsl(0, 100%, 67%)' : ''}
+                        inputerror={dayError ? 'hsl(0, 100%, 67%)' : ''}
                     />
                     {dayError && <Error>{dayMessage}</Error>}
                 </FlexDivColumn>
                 <FlexDivColumn>
                     <Label
                         htmlFor='month'
-                        inputError={monthError ? 'hsl(0, 100%, 67%)' : ''}
+                        inputerror={monthError ? 'hsl(0, 100%, 67%)' : ''}
                     >
                         Month
                     </Label>
@@ -151,14 +151,14 @@ const Form = ({ setDate }) => {
                         min='1'
                         placeholder='MM'
                         onChange={handleMonthInput}
-                        inputError={monthError ? 'hsl(0, 100%, 67%)' : ''}
+                        inputerror={monthError ? 'hsl(0, 100%, 67%)' : ''}
                     />
                     {monthError && <Error>{monthMessage}</Error>}
                 </FlexDivColumn>
                 <FlexDivColumn>
                     <Label
                         htmlFor='year'
-                        inputError={yearError ? 'hsl(0, 100%, 67%)' : ''}
+                        inputerror={yearError ? 'hsl(0, 100%, 67%)' : ''}
                     >
                         Year
                     </Label>
@@ -169,7 +169,7 @@ const Form = ({ setDate }) => {
                         min='1'
                         placeholder='YYYY'
                         onChange={handleYearInput}
-                        inputError={yearError ? 'hsl(0, 100%, 67%)' : ''}
+                        inputerror={yearError ? 'hsl(0, 100%, 67%)' : ''}
                     />
                     {yearError && <Error>{yearMessage}</Error>}
                 </FlexDivColumn>
