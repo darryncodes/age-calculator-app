@@ -28,23 +28,18 @@ const Form = ({ setDate }) => {
     dayjs.extend(customParseFormat);
 
     const handleDayInput = (e) => {
-        let formattedDay =
-            e.target.value < 10 ? '0' + e.target.value : e.target.value;
+        setDay(e.target.value.padStart(2, '0'));
 
-        setDay(formattedDay);
-
-        if (formattedDay.length) {
+        if (e.target.value.length) {
             setDayMessage('');
             setDayError(false);
         }
     };
 
     const handleMonthInput = (e) => {
-        let formattedMonth =
-            e.target.value < 10 ? '0' + e.target.value : e.target.value;
-        setMonth(formattedMonth);
+        setMonth(e.target.value.padStart(2, '0'));
 
-        if (formattedMonth.length) {
+        if (e.target.value.length) {
             setMonthMessage('');
             setMonthError(false);
         }
@@ -89,6 +84,8 @@ const Form = ({ setDate }) => {
         ) {
             setDayMessage('Must be a valid date');
             setDayError(true);
+            setMonthError(true);
+            setYearError(true);
             return;
         }
 
