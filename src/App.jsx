@@ -4,6 +4,8 @@ import { Container } from './components/styles/Container.styled';
 import Form from './components/Form';
 import Output from './components/Output';
 import { useState } from 'react';
+import HiddenHeading from './components/HiddenHeading';
+import Footer from './components/Footer';
 
 const theme = {
     colours: {
@@ -25,10 +27,12 @@ function App() {
         <ThemeProvider theme={theme}>
             <>
                 <GlobalStyles />
+                <HiddenHeading />
                 <Container>
                     <Form setDate={setDate} />
                     <Output date={date} />
                 </Container>
+                <Footer />
             </>
         </ThemeProvider>
     );

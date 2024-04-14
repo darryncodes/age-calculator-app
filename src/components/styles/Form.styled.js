@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
-    gap: 1rem;
 
     position: relative;
 
@@ -30,8 +29,16 @@ export const StyledForm = styled.form`
 export const FlexDivRow = styled.div`
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    padding-bottom: 1rem;
+    gap: 2rem;
+    padding-bottom: 2rem;
+
+    @media (min-width: 380px) {
+        gap: 1rem;
+    }
+
+    @media (min-width: ${({ theme }) => theme.mobile}) {
+        padding-bottom: 1rem;
+    }
 `;
 
 export const FlexDivColumn = styled.div`
@@ -57,9 +64,12 @@ export const Input = styled.input`
     border-color: ${(props) => props.inputerror};
     border-radius: 0.25rem;
     padding: 0.25rem 0.5rem;
-    width: 5rem;
-
+    width: 4rem;
     cursor: pointer;
+
+    &#year {
+        width: 5rem;
+    }
 
     &:hover,
     &:focus-within {
@@ -71,15 +81,24 @@ export const Input = styled.input`
         font-size: 1.5rem;
         width: 8rem;
         padding: 0.25rem 1rem;
+
+        &#year {
+            width: 8rem;
+        }
     }
 `;
 
 export const Error = styled.small`
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     font-weight: 200;
     color: ${({ theme }) => theme.colours.lightRed};
     position: absolute;
-    bottom: -45px;
+    bottom: -29px;
+    line-height: 1;
+
+    @media (min-width: ${({ theme }) => theme.mobile}) {
+        bottom: -20px;
+    }
 `;
 
 export const Button = styled.button`
