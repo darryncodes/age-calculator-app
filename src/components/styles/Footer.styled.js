@@ -17,4 +17,10 @@ export const StyledFooter = styled.footer`
     a:hover {
         text-decoration: underline;
     }
+
+    a:focus-within {
+        outline: 1px solid ${({ theme }) => theme.colours.purple};
+        outline-offset: 2px;
+        border-radius: 0.25rem;
+    }
 `;

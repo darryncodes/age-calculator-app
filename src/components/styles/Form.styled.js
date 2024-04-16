@@ -117,6 +117,11 @@ export const Button = styled.button`
         background-color: ${({ theme }) => theme.colours.offBlack};
     }
 
+    &:focus-within {
+        outline: 2px solid ${({ theme }) => theme.colours.offBlack};
+        outline-offset: 2px;
+    }
+
     @media (min-width: ${({ theme }) => theme.mobile}) {
         align-self: end;
         padding: 0.75rem;
