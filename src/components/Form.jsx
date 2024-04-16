@@ -188,7 +188,7 @@ const Form = ({ setDate }) => {
                     {yearError && <Error>{yearMessage}</Error>}
                 </FlexDivColumn>
             </FlexDivRow>
-            <Button type='submit'>
+            <Button type='submit' aria-label='Age calculator submit button'>
                 <img src={arrow} alt='' />
             </Button>
         </StyledForm>
