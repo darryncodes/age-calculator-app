@@ -213,6 +213,9 @@ p, h1, h2, h3, h4, h5, h6 {
 `,r0=()=>U.jsx(n0,{children:"Frontend Mentor Age calculator challenge"}),l0=be.footer`
     position: absolute;
     bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
     text-align: center;
     font-size: 1rem;
     font-weight: 400;
